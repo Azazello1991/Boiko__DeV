@@ -782,18 +782,23 @@ input:-webkit-autofill:active {
   -webkit-text-fill-color: #fff;
 }
 
+input.done {
+  border: 2px solid #ff6838;
+}
+
 p.error-message {
   text-align: left;
   font-size: 16px;
   color: red;
-  margin-top: -20px;
+  margin-top: -10px;
 }
 
-.submit-btn {
+.more-btn.submit-btn {
   position: relative;
   padding: 12px 60px 12px 20px;
   font-size: 1.1rem;
-  margin: 10px auto 0;
+  margin: 10px auto 40px;
+  border: solid #cccccc 2px;
 }
 
 .submit-btn::after {
@@ -861,6 +866,28 @@ p.error-message {
 
   .all-projects img {
     height: 180px;
+  }
+
+  .about-container .img-frame::after {
+    width: 50px;
+    height: 50px;
+    background-size: 50px;
+  }
+
+  .all-projects img {
+    height: 200px;
+    width: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+
+  .all-projects {
+    padding: 0;
+  }
+
+  .popup-body {
+    padding: 10px;
   }
 }
 

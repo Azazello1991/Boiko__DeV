@@ -95,6 +95,10 @@ const message = document.getElementById("subject");
 const mail = document.getElementById("mail");
 const phone = document.getElementById("phone");
 const name = document.getElementById("name");
+const accentColor = "#ff6838";
+let phoneDone = false;
+let mailDone = false;
+let nameDone = false;
 
 document.addEventListener("click", (event) => {
   const target = event.target;
@@ -108,35 +112,48 @@ document.addEventListener("change", (event) => {
   const target = event.target;
 
   if (target.classList.contains("fild-phone")) {
-    const phoneDone = patterns.phonePattern.test(target.value.trim());
+    phoneDone = patterns.phonePattern.test(target.value.trim());
 
     if (!phoneDone) {
       target.style.border = "1px solid red";
       target.nextElementSibling.textContent = "Не вірно вказаний номер";
     } else {
-      target.style.border = "1px solid #ccc";
+      target.style.border = `1px solid ${accentColor}`;
       target.nextElementSibling.textContent = "";
     }
   } else if (target.classList.contains("fild-mail")) {
-    const mailDone = patterns.mailPattern.test(target.value.trim());
+    mailDone = patterns.mailPattern.test(target.value.trim());
 
     if (!mailDone) {
       target.style.border = "1px solid red";
       target.nextElementSibling.textContent = "Емейл має мати *@mail.**";
     } else {
-      target.style.border = "1px solid #ccc";
+      target.style.border = `1px solid ${accentColor}`;
       target.nextElementSibling.textContent = "";
     }
   } else if (target.classList.contains("fild-name")) {
-    const nameDone = target.value.length > 1;
+    nameDone = target.value.length > 1;
 
     if (!nameDone) {
       target.style.border = "1px solid red";
-      target.nextElementSibling.textContent = "Ім'я має бути довшим ніж 1 символ";
+      target.nextElementSibling.textContent =
+        "Ім'я має бути довшим ніж 1 символ";
     } else {
-      target.style.border = "1px solid #ccc";
+      target.style.border = `1px solid ${accentColor}`;
       target.nextElementSibling.textContent = "";
     }
+  } else if (target.classList.contains("subject")) {
+    if (target.value && target.value.length >= 1) {
+      target.style.border = `1px solid ${accentColor}`;
+    } else {
+      target.style.border = "1px solid #cccccc";
+    }
+  }
+
+  console.log(phoneDone, mailDone, nameDone)
+
+  if (phoneDone && mailDone && nameDone) {
+    submitBtn.style.borderColor = accentColor;
   }
 });
 
@@ -147,8 +164,8 @@ function chackForm() {
 
   if (phoneDone && mailDone && nameDone) {
     sendMessage(phone, mail, name);
-    showMessage()
-    document.querySelector('.form').reset()
+    showMessage();
+    document.querySelector(".form").reset();
   }
 }
 
@@ -160,7 +177,9 @@ function sendMessage(phone, mail, name) {
     },
     body: JSON.stringify({
       chat_id: chatId,
-      text: `Message: ${message ? message.value : ""}\nEmail: ${mail.value}\nPhone: ${phone.value}\nName: ${name.value}`,
+      text: `Message: ${message ? message.value : ""}\nEmail: ${
+        mail.value
+      }\nPhone: ${phone.value}\nName: ${name.value}`,
     }),
   })
     .then((response) => response.json())
@@ -170,15 +189,14 @@ function sendMessage(phone, mail, name) {
     .catch((error) => {
       console.error("Ошибка отправки:", error);
     });
-  
 }
 
-
 function showMessage() {
-  const messageBlock = document.querySelector('.messag-banner');
+  const messageBlock = document.querySelector(".messag-banner");
 
-  messageBlock.classList.remove('hidden');
+  messageBlock.classList.remove("hidden");
   setTimeout(() => {
-    messageBlock.classList.add('hidden');
-  }, 3000);
+    messageBlock.classList.add("hidden");
+    location.reload()
+  }, 4000);
 }
