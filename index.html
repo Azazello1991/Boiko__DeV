@@ -10,7 +10,7 @@
       href="./images/favicon//favicon-96x96.png"
       sizes="96x96"
     />
-    <link rel="icon" type="image/svg+xml" href="./images/favicon/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="./images/favicon/favicon.ico" />
     <link rel="shortcut icon" href="/favicon.ico" />
     <link
       rel="apple-touch-icon"
@@ -25,7 +25,7 @@
     />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
     />
     <link rel="stylesheet" href="css/style.css" />
   </head>
@@ -5300,14 +5300,30 @@
               <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
             </button>
           </div>
+          <button class="lg en" title="To translating"></button>
         </div>
         <div class="popup-body about-container">
-          <div class="img-frame">
-            <img src="./images/avatar_2.webp" alt="" loading="lazy" />
+          <div class="swiper swiper-avatar">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="./images/avatar_2.webp" alt="avatar" loading="lazy" />
+              </div>
+
+              <div class="swiper-slide">
+                <img src="./images/avatar_1.webp" alt="avatar" loading="lazy" />
+              </div>
+
+              <div class="swiper-slide">
+                <video autoplay loop muted playsinline>
+                  <source src="./images/Video_avatar.webm" type="video/webm" />
+                </video>
+              </div>
+            </div>
+            <div class="swiper-pagination avatars-pagination"></div>
           </div>
           <div class="hero-content">
             <h1 class="title">Sergiy Boiko</h1>
-            <p>
+            <p class="about-text">
               Я Front-End розробник із досвідом роботи у створенні динамічних та
               інтерактивних веб-додатків. Маю глибокі знання в React і сучасних
               технологіях веб-розробки. Мене надихає можливість створювати
@@ -5366,7 +5382,13 @@
 
             <div class="all-projects">
               <div class="project-box">
-                <img src="./images/projects/masson.webp" alt="photo" />
+                <div class="scrin-inner">
+                  <img
+                    class="project-scrin"
+                    src="./images/projects/masson.webp"
+                    alt="photo"
+                  />
+                </div>
                 <h2 class="subtitle">Use technologies:</h2>
                 <ul class="technologies">
                   <li class="technology html"></li>
@@ -5383,13 +5405,13 @@
                     <a
                       class="more-btn"
                       target="_blank"
-                      href="https://masson-brending-git-master-sergiys-projects-7e171c14.vercel.app/"
+                      href="https://massonbrendinshop.vercel.app/"
                       >Go to site</a
                     >
                     <a
                       class="more-btn"
                       target="_blank"
-                      href="https://github.com/Azazello1991/masson-brending_react-App"
+                      href="https://github.com/Azazello1991/masson-brending_App_v2"
                     >
                       Show code
                     </a>
@@ -5398,12 +5420,16 @@
               </div>
 
               <div class="project-box">
-                <img
-                  class="project-scrin"
-                  loading="lazy"
-                  src="./images/projects/app.webp"
-                  alt="photo"
-                />
+                <div class="scrin-inner">
+                  <img
+                    class="project-scrin"
+                    width="350"
+                    height="200"
+                    loading="lazy"
+                    src="./images/projects/app.webp"
+                    alt="photo"
+                  />
+                </div>
                 <h2 class="subtitle">Use technologies:</h2>
                 <ul class="technologies">
                   <li class="technology html"></li>
@@ -5433,7 +5459,13 @@
               </div>
 
               <div class="project-box">
-                <img src="./images/projects/cleaning.webp" alt="photo" />
+                <div class="scrin-inner">
+                  <img
+                    class="project-scrin"
+                    src="./images/projects/cleaning.webp"
+                    alt="photo"
+                  />
+                </div>
                 <h2 class="subtitle">Use technologies:</h2>
                 <ul class="technologies">
                   <li class="technology html"></li>
@@ -5464,7 +5496,13 @@
               </div>
 
               <div class="project-box">
-                <img src="./images/projects/simple_food.webp" alt="photo" />
+                <div class="scrin-inner">
+                  <img
+                    class="project-scrin"
+                    src="./images/projects/simple_food.webp"
+                    alt="photo"
+                  />
+                </div>
                 <h2 class="subtitle">Use technologies:</h2>
                 <ul class="technologies">
                   <li class="technology html"></li>
@@ -5515,81 +5553,108 @@
           </div>
         </div>
         <div class="popup-body testimonial-container">
-          <h1>Testimonials</h1>
+          <h1>My courses</h1>
 
           <div class="slider-container">
-            <div class="swiper">
+            <div class="swiper testimonial-swiper">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
                   <div class="user-info">
                     <img
-                      src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/c3e8a2a1-ab19-4fae-be0c-92bb3b6f3122"
-                      alt=""
+                      src="https://ic.pics.livejournal.com/ilyachalov/24714720/113696/113696_original.jpg"
+                      alt="photo"
                     />
-                    <h2>Emily Sullivan</h2>
+                    <h2>Євген Андріканіч</h2>
                   </div>
+                  <h3 class="subtitle">"Фрілансер по життю"</h3>
                   <p>
-                    Ruth makes websites look really cool and work smoothly.
-                    She's turning ideas into websites that just make sense!
+                    Безкоштовний онлайн курс з кросбраузерної, семантичної верстки по методології БЕМ. Стилізація блоків на звичайному CSS та на препроцесорі SCSS. Вивчення анімаці, підключення CDN пакетів, робота з Gulp. Знайомство з JS.
                   </p>
                 </div>
 
                 <div class="swiper-slide">
                   <div class="user-info">
                     <img
-                      src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/f54a0d84-8f52-4fa6-886f-0acb5a724130"
+                      src="https://fs06.vseosvita.ua/0601zlot-a5ce-212x220.jpg"
                       alt=""
                     />
-                    <h2>Oliver Reynolds</h2>
+                    <h2>Артем Таланов</h2>
                   </div>
+                  <h3 class="subtitle">"JS-space"</h3>
                   <p>
-                    Ruth is the go-to person for making websites look awesome.
-                    She pays attention to the details that make a big
-                    difference.
+                    Платний 5-ми місячний онлайн курс з менторством та ДЗ з JS: <br>
+                    -Змінні<br>
+                    -Типи динамічних<br>
+                    -Робота з рядками<br>
+                    -Перетворення динамічних<br>
+                    -Оператори<br>
+                    -Умовні конструкції<br>
+                    -Цикли,break,continue<br>
+                    -Об'єкти<br>
+                    -Методи масивів, SPREAD-оператор<br>
+                    -DOM - маніпуляції<br>
+                    -Події в Java Script<br>
+                    -Робота з атрибутами. Об'єкт Math<br>
+                    -Пошук родичів та сусідів. Делегування подій<br>
+                    -Робота з формами, валідація<br>
+                    -методи масивів map, filter, find, sort, forEach<br>
+                    -Планування(SetInterval, SetTimeOut), робота з датами, LocalStorage<br>
+                    -Асинхронність, API, Fetch
                   </p>
                 </div>
 
                 <div class="swiper-slide">
                   <div class="user-info">
                     <img
-                      src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/30f2184c-df17-4fd8-aabf-2db7cdad85e4"
-                      alt=""
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs6qGRVRiwH29AsG6cEbo_8ivf_lSl6BN0EQ&sp0ew"
                     />
-                    <h2>Margaret Turner</h2>
+                    <h2>Вадім Прокопчук/Артем Таланов</h2>
                   </div>
+                  <h3 class="subtitle">"Від 0 до 1"</h3>
                   <p>
-                    Ruth's ability to transform ideas into visually appealing
-                    and user-friendly websites showcases her dedication and
-                    talent in the field.
+                    Платний 2-х місячний онлайн курс з верстки. Семантична та кросбраузерна верстка на HTML5, стилізація на чистому CSS та з
+                    препроцесором SCSS. Робота з Gulp. Верстка по методології БЕМ, підключення та налаштування CDN пакетів, робота з
+                    формами, keyframes, transition, псевдокласи та псевдоєлементи. Знайомство з JS. Тестування роботи на швидкість завантаження, оптимізація зображень та шрифтів.
                   </p>
                 </div>
 
                 <div class="swiper-slide">
                   <div class="user-info">
                     <img
-                      src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/f010b87b-d741-44c2-8985-133b25cce2ea"
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCunfHbm43DXjIfuiqCnXrkUUe7gWi8N6Vcg&s"
                       alt=""
                     />
-                    <h2>Ava Mitchell</h2>
+                    <h2>Archakov Blog</h2>
                   </div>
+                  <h3 class="subtitle">"React/Redux-toolkit"</h3>
                   <p>
-                    If you want a website that looks fantastic, Ruth is the
-                    person to call. She brings creativity and tech skills
-                    together seamlessly.
+                    4-х місячний курс по React/Redux-Toolkit:<br>
+                    -Робота з компонентами, props, import/export <br>
+                    -SCSS, module.scss <br>
+                    -useState, onClick, деструктуризація <br>
+                    -метод map(), key <br>
+                    -fetch (Axios), useEffect() <br>
+                    -Reaact Router v6 <br>
+                    -useContext, props drilling <br>
+                    -Redux Redux-Toolkit <br>
+                    -useSelecto, useDispatch, Slice <br>
+                    -createAsyncThunk, робота з помилками back-end <br>
+                    -useParams, useLocation, Outlet <br>
+                    -useRef <br>
                   </p>
                 </div>
 
                 <div class="swiper-slide swiper-no-swiping">
                   <div class="user-info">
                     <img
-                      src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/0ca59a80-3ef2-4f1e-b80a-bf957207838f"
+                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAnFBMVEX///8AAAD/bACfn5//jEr/aQBKSkr/wZ//ZgD/3cj/YQD/28T/9O3/eBf//Pj/gDN1dXX/5NT/7uPe3t709PTNzc1UVFT/xqaRkZEwMDDV1dU9PT339/e4uLhPT0/BwcGCgoJmZmbm5ualpaUUFBR5eXmIiIgbGxttbW1BQUGysrJdXV3/iD+ZmZnk5OQ0NDT/0rf/sIH/vJUoKCivtIICAAAEaklEQVR4nO2aa1viMBBGW1lZQF0vFIRCaSkotxXc9f//t+XSTNI2GZC1xCfPe75Rh6HHNMkkqecBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABABdSqZ2L88cffPyrH8y+AUbHZuq6cixj6bZNh46pyLmM4cN7Q7zlv6HecN9wMXTf0E+cNtc+pW4bTwHVDf+68oR85b+iXnlPnDLvOG5ZKcPcM/bXzhiPnDf2372g4eKlFcRzVkhEbtpi/9nrJuH8kW/t0w5Yg+9xomeDSHDXsKV0niOqGqFVMM0E62XD5NqcbvjdvDtwdBJ/F5yLNP0yeI4a14vjeWWii5mkhyPSP2PF6quH1rQi7u94bPhZvhng+13CRarK9FaP6mpp6wmRVwm0bjrVrOi/OR400FfW2Gc1p+zKtZcOxKV+UEzQEtc2JX76JoWn3yAumapS+nT22FePvYWjaAfTqJ0VpOiwxEw+2VUN1yPOCtRxzXtQowx7agQ+jolgqWjVUxo94P0N0D89WLRel/Eo76fvT0VK5EmsT71meY/j+lEG/kH2+/XuGYSJvlBptlBbvWmnC1+xSP5TXmKk//bzhVeNA6+5Xdv12W83suWbSmAw7pVvfMu2k+ShZ7yTyouyaPbNh9wxDcf1eGjJfP2JIY4EXmu9SqcDUpu17p3x3YtlQrsZXu4+iRYeHueEhi5KPcq6Wo74YzBjFtl1DmpQDXzXMEIa0ZF8b/j0DxrBu15CGkJAzpM2zXJXjTymwyxjulooWDWlN0eEMqTYpFNrUicec4fY5tWhIS3G2Dclwmf82VXIrTnBgtQ0TkZzthzSk5GvQDwrk1om7ocai4YpucsEYUksP1WJcDlNDbktj1xEsGso5LWYM5foqN7fTlL8u5ZXsB1yLhkphsutLg/qWBQ0/wlB2uEAp0BL66lKTWJDaNpQbNAEN+fT0kSENNd6aJndl4cwMNIcubNNQ3RKbHHpZl2pqMpTd1Quyi8rGPfOQZv8Gm4b5o7B2Jw6VxTwZ+spCwgviyTLXYR9MuanstWo4M25PqLdeOk1SYOpu8XRbNVT2i0ooy3zzO2vMVPEgYuwaMjevlpuxKWhsTDyjGMuGJsU0X6no3wXy5ua88hu2DfO7UYKouOhbaoIC5hRH2fqwbugPSg0UahZE49Lm/3JajqKcSpx9w+06NVLGVOPZU6Jumw4j9vBJDT3TUFz/EsMtq17UCcN4+cqtZ+u9uJ0GaRpOHpj28wunWfzpWvMx4y5vfi+u35xywPqlZ8BTXm5H/piDN2wITv5D5YYnkH7C8Gu4sGFh3HXPsHhg555h8TDVOcNSheeaYbmWd8ywXz7wd8xQU6K7Zagr450y3GgE3TIMXTcsvT7mmqFhx8ohQ90Lck4Z6jY6nDI0viHXbDUqx6tXj/7txR1PP6vH9NsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwP/wD6PSNv4XdLk8AAAAASUVORK5CYII="
                       alt=""
                     />
-                    <h2>Samuel Morgan</h2>
+                    <h2>Go IT</h2>
                   </div>
+                  <h3 class="subtitle">"JS"</h3>
                   <p>
-                    Ruth is a frontend genius! Her work is clean, modern, and
-                    always leaves a positive impression.
+                    Платні лекції по JS від лектора-викладача школи Go-IT.
                   </p>
                 </div>
               </div>
@@ -5665,14 +5730,13 @@
 
             <label for="subject">Subject</label>
             <textarea
-            class="subject"
               id="subject"
               name="subject"
               placeholder="Write something.."
               style="height: 200px"
             ></textarea>
 
-            <button class="more-btn submit-btn" type="button">Submit</button>
+            <button class="submit-btn more-btn" type="button">Submit</button>
           </form>
         </div>
       </div>

@@ -221,10 +221,61 @@ body.prevent-background-scroll {
 .popup-header {
   position: relative;
   display: flex;
+  justify-content: space-between;
   gap: 8px;
   font-weight: 600;
   padding: 15px 20px 10px;
   font-size: 1.2rem;
+}
+
+.lg {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 0px solid transparent;
+  outline: 0 solid transparent;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    rotate: 0deg;
+  }
+  50% {
+    rotate: 180deg;
+  }
+
+  100% {
+    rotate: 360deg;
+  }
+}
+
+.lg:hover {
+  scale: 1.2;
+}
+
+.lg::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.lg.ua::after {
+  background-image: url("../images/icons/ukraine-icon.svg");
+}
+
+.lg.en::after {
+  background-image: url("../images/icons/usa-icon.svg");
 }
 
 .popup-body {
@@ -347,31 +398,6 @@ body.prevent-background-scroll {
   box-shadow: #deedef 0px 10px 30px 8px, rgba(62, 63, 168, 0.8) 0px 0px 0px 2px;
 }
 
-.about-container .img-frame::after {
-  content: "";
-  position: absolute;
-  bottom: 5px;
-  right: 5px;
-  width: 80px;
-  height: 80px;
-  background-image: url("../images/Logo.png");
-  background-color: #ffffff;
-  border-radius: 50%;
-  background-size: 80px;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.about-container .img-frame img {
-  aspect-ratio: 6/7;
-  object-fit: cover;
-  transition: transform 1s;
-}
-
-.about-container .img-frame:hover img {
-  transform: rotate(4deg) scale(1.25);
-}
-
 /* ------- */
 /* SKILLS */
 
@@ -427,9 +453,14 @@ body.prevent-background-scroll {
   padding: 30px;
 }
 
-.all-projects img {
+.project-box {
+  max-width: 350px;
+  width: 100%;
+}
+
+.project-scrin {
   height: 200px;
-  width: 350px;
+  width: 100%;
   object-fit: cover;
   border-radius: 12px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -782,23 +813,18 @@ input:-webkit-autofill:active {
   -webkit-text-fill-color: #fff;
 }
 
-input.done {
-  border: 2px solid #ff6838;
-}
-
 p.error-message {
   text-align: left;
   font-size: 16px;
   color: red;
-  margin-top: -10px;
+  margin-top: -20px;
 }
 
-.more-btn.submit-btn {
+.submit-btn {
   position: relative;
   padding: 12px 60px 12px 20px;
   font-size: 1.1rem;
-  margin: 10px auto 40px;
-  border: solid #cccccc 2px;
+  margin: 10px auto 0;
 }
 
 .submit-btn::after {
@@ -864,30 +890,12 @@ p.error-message {
     aspect-ratio: 1/1;
   }
 
-  .all-projects img {
-    height: 180px;
-  }
-
-  .about-container .img-frame::after {
-    width: 50px;
-    height: 50px;
-    background-size: 50px;
-  }
-
-  .all-projects img {
-    height: 200px;
-    width: 300px;
-    object-fit: cover;
-    border-radius: 12px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  }
-
   .all-projects {
-    padding: 0;
+    padding: 15px;
   }
 
   .popup-body {
-    padding: 10px;
+    padding: 15px;
   }
 }
 
@@ -1052,3 +1060,74 @@ p.error-message {
     transform: translate3d(0, 0%, 0);
   }
 }
+/* =========== my code ============*/
+
+/* swiper-avatar */
+.swiper-avatar {
+  height: 320px;
+  box-shadow: #deedef 0px 10px 30px 8px;
+  overflow: hidden;
+  border-radius: 8px;
+  padding: 0;
+}
+
+.swiper-avatar .swiper-slide {
+  box-shadow: 0 0 0 transparent;
+  outline: 0 solid transparent;
+  background: transparent;
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+
+.swiper-avatar .swiper-slide:hover img {
+  transform: rotate(4deg) scale(1.25);
+}
+
+.swiper-avatar img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 6/7;
+  object-fit: cover;
+  transition: transform 1s;
+}
+
+/* .about-container .img-frame::after {
+  content: "";
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 80px;
+  height: 80px;
+  background-image: url("../images/Logo.png");
+  background-color: #ffffff;
+  border-radius: 50%;
+  background-size: 80px;
+  background-position: center;
+  background-repeat: no-repeat;
+} */
+
+.swiper-avatar video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatars-pagination .swiper-pagination-bullet {
+  width: 15px;
+  height: 5px;
+  border-radius: 0;
+  background-color: #ff6838;
+  transition: all 0.5s ease-in-out;
+}
+
+.avatars-pagination .swiper-pagination-bullet-active {
+  border-radius: 50%;
+  height: 10px;
+  width: 10px;
+}
+
+/* ------------- */
